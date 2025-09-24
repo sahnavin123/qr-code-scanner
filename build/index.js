@@ -55,7 +55,7 @@ var $r = {};
  */
 var ci;
 function fs() {
-  return ci || (ci = 1, process.env.NODE_ENV !== "production" && (function() {
+  return ci || (ci = 1, process.env.NODE_ENV !== "production" && function() {
     var c = Pe, h = Symbol.for("react.element"), f = Symbol.for("react.portal"), E = Symbol.for("react.fragment"), C = Symbol.for("react.strict_mode"), w = Symbol.for("react.profiler"), _ = Symbol.for("react.provider"), B = Symbol.for("react.context"), N = Symbol.for("react.forward_ref"), p = Symbol.for("react.suspense"), M = Symbol.for("react.suspense_list"), v = Symbol.for("react.memo"), ee = Symbol.for("react.lazy"), q = Symbol.for("react.offscreen"), me = Symbol.iterator, j = "@@iterator";
     function ue(m) {
       if (m === null || typeof m != "object")
@@ -641,7 +641,7 @@ React keys must be passed directly to JSX without using spread:
     }
     var nr = pt, Ot = Wr;
     $r.Fragment = E, $r.jsx = nr, $r.jsxs = Ot;
-  })()), $r;
+  }()), $r;
 }
 var fi;
 function us() {
@@ -685,14 +685,14 @@ var mn;
 (function(c) {
   c[c.SCAN_TYPE_CAMERA = 0] = "SCAN_TYPE_CAMERA", c[c.SCAN_TYPE_FILE = 1] = "SCAN_TYPE_FILE";
 })(mn || (mn = {}));
-var gs = (function() {
+var gs = function() {
   function c() {
   }
   return c.GITHUB_PROJECT_URL = "https://github.com/mebjas/html5-qrcode", c.SCAN_DEFAULT_FPS = 2, c.DEFAULT_DISABLE_FLIP = !1, c.DEFAULT_REMEMBER_LAST_CAMERA_USED = !0, c.DEFAULT_SUPPORTED_SCAN_TYPE = [
     mn.SCAN_TYPE_CAMERA,
     mn.SCAN_TYPE_FILE
   ], c;
-})(), bi = (function() {
+}(), bi = function() {
   function c(h, f) {
     this.format = h, this.formatName = f;
   }
@@ -703,7 +703,7 @@ var gs = (function() {
       throw "".concat(h, " not in html5QrcodeSupportedFormatsTextMap");
     return new c(h, ui.get(h));
   }, c;
-})(), di = (function() {
+}(), di = function() {
   function c() {
   }
   return c.createFromText = function(h) {
@@ -720,11 +720,11 @@ var gs = (function() {
       result: h
     };
   }, c;
-})(), Hn;
+}(), Hn;
 (function(c) {
   c[c.UNKWOWN_ERROR = 0] = "UNKWOWN_ERROR", c[c.IMPLEMENTATION_ERROR = 1] = "IMPLEMENTATION_ERROR", c[c.NO_CODE_FOUND_ERROR = 2] = "NO_CODE_FOUND_ERROR";
 })(Hn || (Hn = {}));
-var xs = (function() {
+var xs = function() {
   function c() {
   }
   return c.createFrom = function(h) {
@@ -733,7 +733,7 @@ var xs = (function() {
       type: Hn.UNKWOWN_ERROR
     };
   }, c;
-})(), ws = (function() {
+}(), ws = function() {
   function c(h) {
     this.verbose = h;
   }
@@ -748,11 +748,11 @@ var xs = (function() {
       throw "Logger#logError called without arguments";
     this.verbose && console.error(h);
   }, c;
-})();
+}();
 function ir(c) {
   return typeof c > "u" || c === null;
 }
-var Fr = (function() {
+var Fr = function() {
   function c() {
   }
   return c.codeParseError = function(h) {
@@ -770,7 +770,7 @@ var Fr = (function() {
   }, c.scannerPaused = function() {
     return "Scanner paused";
   }, c;
-})(), _i = (function() {
+}(), _i = function() {
   function c() {
   }
   return c.isMediaStreamConstraintsValid = function(h, f) {
@@ -794,12 +794,12 @@ var Fr = (function() {
     }
     return !0;
   }, c;
-})(), en = { exports: {} }, Es = en.exports, gi;
+}(), en = { exports: {} }, Es = en.exports, gi;
 function As() {
-  return gi || (gi = 1, (function(c, h) {
+  return gi || (gi = 1, function(c, h) {
     (function(f, E) {
       E(h);
-    })(Es, (function(f) {
+    })(Es, function(f) {
       function E(d) {
         return d == null;
       }
@@ -824,7 +824,7 @@ function As() {
         var t = Error.captureStackTrace;
         t && t(d, e);
       }
-      var N = (function(d) {
+      var N = function(d) {
         w(e, d);
         function e(t) {
           var r = this.constructor, n = d.call(this, t) || this;
@@ -834,7 +834,7 @@ function As() {
           }), _(n, r.prototype), B(n), n;
         }
         return e;
-      })(Error);
+      }(Error);
       class p extends N {
         /**
          * Allows Exception to be constructed directly
@@ -20755,15 +20755,15 @@ function As() {
         }
       }
       f.AbstractExpandedDecoder = Y, f.ArgumentException = M, f.ArithmeticException = xr, f.AztecCode = ii, f.AztecCodeReader = _r, f.AztecCodeWriter = gn, f.AztecDecoder = Be, f.AztecDetector = Vr, f.AztecDetectorResult = an, f.AztecEncoder = Te, f.AztecHighLevelEncoder = Qr, f.AztecPoint = dt, f.BarcodeFormat = re, f.Binarizer = me, f.BinaryBitmap = ee, f.BitArray = z, f.BitMatrix = Oe, f.BitSource = Rn, f.BrowserAztecCodeReader = Tn, f.BrowserBarcodeReader = Bi, f.BrowserCodeReader = ot, f.BrowserDatamatrixCodeReader = Pi, f.BrowserMultiFormatReader = Zi, f.BrowserPDF417Reader = ji, f.BrowserQRCodeReader = Ki, f.BrowserQRCodeSvgWriter = mr, f.CharacterSetECI = F, f.ChecksumException = q, f.Code128Reader = X, f.Code39Reader = st, f.DataMatrixDecodedBitStreamParser = lr, f.DataMatrixReader = cr, f.DecodeHintType = ce, f.DecoderResult = $t, f.DefaultGridSampler = Ur, f.DetectorResult = or, f.EAN13Reader = Wt, f.EncodeHintType = ht, f.Exception = p, f.FormatException = L, f.GenericGF = _e, f.GenericGFPoly = Ct, f.GlobalHistogramBinarizer = Ve, f.GridSampler = br, f.GridSamplerInstance = Yt, f.HTMLCanvasElementLuminanceSource = Bt, f.HybridBinarizer = se, f.ITFReader = Le, f.IllegalArgumentException = v, f.IllegalStateException = bt, f.InvertedLuminanceSource = Mt, f.LuminanceSource = It, f.MathUtils = Ee, f.MultiFormatOneDReader = Nr, f.MultiFormatReader = ri, f.MultiFormatWriter = Qi, f.NotFoundException = D, f.OneDReader = et, f.PDF417DecodedBitStreamParser = O, f.PDF417DecoderErrorCorrection = qn, f.PDF417Reader = At, f.PDF417ResultMetadata = Jn, f.PerspectiveTransform = St, f.PlanarYUVLuminanceSource = Kt, f.QRCodeByteMatrix = hn, f.QRCodeDataMask = kt, f.QRCodeDecodedBitStreamParser = $e, f.QRCodeDecoderErrorCorrectionLevel = Xe, f.QRCodeDecoderFormatInformation = yt, f.QRCodeEncoder = ze, f.QRCodeEncoderQRCode = Ar, f.QRCodeMaskUtil = rt, f.QRCodeMatrixUtil = ie, f.QRCodeMode = ne, f.QRCodeReader = fr, f.QRCodeVersion = te, f.QRCodeWriter = Rr, f.RGBLuminanceSource = Fn, f.RSS14Reader = tt, f.RSSExpandedReader = P, f.ReaderException = un, f.ReedSolomonDecoder = Gt, f.ReedSolomonEncoder = Pn, f.ReedSolomonException = ar, f.Result = Ke, f.ResultMetadataType = qe, f.ResultPoint = Q, f.StringUtils = $, f.UnsupportedOperationException = it, f.VideoInputDevice = dr, f.WhiteRectangleDetector = Ht, f.WriterException = Ge, f.ZXingArrays = G, f.ZXingCharset = ni, f.ZXingInteger = V, f.ZXingStandardCharsets = kn, f.ZXingStringBuilder = he, f.ZXingStringEncoding = Ce, f.ZXingSystem = j, f.createAbstractExpandedDecoder = jt, Object.defineProperty(f, "__esModule", { value: !0 });
-    }));
-  })(en, en.exports)), en.exports;
+    });
+  }(en, en.exports)), en.exports;
 }
 var Ye = As();
 const ms = /* @__PURE__ */ ls(Ye), Cs = /* @__PURE__ */ os({
   __proto__: null,
   default: ms
 }, [Ye]);
-var xi = (function() {
+var xi = function() {
   function c(h, f, E) {
     if (this.formatMap = /* @__PURE__ */ new Map([
       [Z.QR_CODE, Ye.BarcodeFormat.QR_CODE],
@@ -20838,7 +20838,7 @@ var xi = (function() {
   }, c.prototype.createDebugData = function() {
     return { decoderName: "zxing-js" };
   }, c;
-})(), ps = function(c, h, f, E) {
+}(), ps = function(c, h, f, E) {
   function C(w) {
     return w instanceof f ? w : new f(function(_) {
       _(w);
@@ -20923,7 +20923,7 @@ var xi = (function() {
     if (p[0] & 5) throw p[1];
     return { value: p[0] ? p[1] : void 0, done: !0 };
   }
-}, wi = (function() {
+}, wi = function() {
   function c(h, f, E) {
     if (this.formatMap = /* @__PURE__ */ new Map([
       [Z.QR_CODE, "qr_code"],
@@ -20995,7 +20995,7 @@ var xi = (function() {
   }, c.prototype.createDebugData = function() {
     return { decoderName: "BarcodeDetector" };
   }, c;
-})(), Ei = function(c, h, f, E) {
+}(), Ei = function(c, h, f, E) {
   function C(w) {
     return w instanceof f ? w : new f(function(_) {
       _(w);
@@ -21080,7 +21080,7 @@ var xi = (function() {
     if (p[0] & 5) throw p[1];
     return { value: p[0] ? p[1] : void 0, done: !0 };
   }
-}, Is = (function() {
+}, Is = function() {
   function c(h, f, E, C) {
     this.EXECUTIONS_TO_REPORT_PERFORMANCE = 100, this.executions = 0, this.executionResults = [], this.wasPrimaryDecoderUsedInLastDecode = !1, this.verbose = E, f && wi.isSupported() ? (this.primaryDecoder = new wi(h, E, C), this.secondaryDecoder = new xi(h, E, C)) : this.primaryDecoder = new xi(h, E, C);
   }
@@ -21141,7 +21141,7 @@ var xi = (function() {
       console.log("".concat(w, " ms for ").concat(this.executionResults.length, " last runs.")), this.executions = 0, this.executionResults = [];
     }
   }, c;
-})(), jn = /* @__PURE__ */ (function() {
+}(), jn = /* @__PURE__ */ function() {
   var c = function(h, f) {
     return c = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(E, C) {
       E.__proto__ = C;
@@ -21158,7 +21158,7 @@ var xi = (function() {
     }
     h.prototype = f === null ? Object.create(f) : (E.prototype = f.prototype, new E());
   };
-})(), Cn = function(c, h, f, E) {
+}(), Cn = function(c, h, f, E) {
   function C(w) {
     return w instanceof f ? w : new f(function(_) {
       _(w);
@@ -21243,7 +21243,7 @@ var xi = (function() {
     if (p[0] & 5) throw p[1];
     return { value: p[0] ? p[1] : void 0, done: !0 };
   }
-}, Ti = (function() {
+}, Ti = function() {
   function c(h, f) {
     this.name = h, this.track = f;
   }
@@ -21262,7 +21262,7 @@ var xi = (function() {
     }
     return null;
   }, c;
-})(), bs = (function(c) {
+}(), bs = function(c) {
   jn(h, c);
   function h(f, E) {
     return c.call(this, f, E) || this;
@@ -21290,19 +21290,19 @@ var xi = (function() {
     if (!this.isSupported())
       throw new Error("".concat(this.name, " capability not supported"));
   }, h;
-})(Ti), _s = (function(c) {
+}(Ti), _s = function(c) {
   jn(h, c);
   function h(f) {
     return c.call(this, "zoom", f) || this;
   }
   return h;
-})(bs), Ts = (function(c) {
+}(bs), Ts = function(c) {
   jn(h, c);
   function h(f) {
     return c.call(this, "torch", f) || this;
   }
   return h;
-})(Ti), Ss = (function() {
+}(Ti), Ss = function() {
   function c(h) {
     this.track = h;
   }
@@ -21311,7 +21311,7 @@ var xi = (function() {
   }, c.prototype.torchFeature = function() {
     return new Ts(this.track);
   }, c;
-})(), Ns = (function() {
+}(), Ns = function() {
   function c(h, f, E) {
     this.isClosed = !1, this.parentElement = h, this.mediaStream = f, this.callbacks = E, this.surface = this.createVideoElement(this.parentElement.clientWidth), h.append(this.surface);
   }
@@ -21390,7 +21390,7 @@ var xi = (function() {
   }, c.prototype.getCapabilities = function() {
     return new Ss(this.getFirstTrackOrFail());
   }, c;
-})(), Os = (function() {
+}(), Os = function() {
   function c(h) {
     this.mediaStream = h;
   }
@@ -21418,7 +21418,7 @@ var xi = (function() {
       });
     });
   }, c;
-})(), mi = function(c, h, f, E) {
+}(), mi = function(c, h, f, E) {
   function C(w) {
     return w instanceof f ? w : new f(function(_) {
       _(w);
@@ -21503,7 +21503,7 @@ var xi = (function() {
     if (p[0] & 5) throw p[1];
     return { value: p[0] ? p[1] : void 0, done: !0 };
   }
-}, Rs = (function() {
+}, Rs = function() {
   function c() {
   }
   return c.failIfNotSupported = function() {
@@ -21521,7 +21521,7 @@ var xi = (function() {
       });
     });
   }, c;
-})(), vs = function(c, h, f, E) {
+}(), vs = function(c, h, f, E) {
   function C(w) {
     return w instanceof f ? w : new f(function(_) {
       _(w);
@@ -21606,7 +21606,7 @@ var xi = (function() {
     if (p[0] & 5) throw p[1];
     return { value: p[0] ? p[1] : void 0, done: !0 };
   }
-}, Ms = (function() {
+}, Ms = function() {
   function c() {
   }
   return c.retrieve = function() {
@@ -21661,11 +21661,11 @@ var xi = (function() {
       C.getSources(E);
     });
   }, c;
-})(), We;
+}(), We;
 (function(c) {
   c[c.UNKNOWN = 0] = "UNKNOWN", c[c.NOT_STARTED = 1] = "NOT_STARTED", c[c.SCANNING = 2] = "SCANNING", c[c.PAUSED = 3] = "PAUSED";
 })(We || (We = {}));
-var Bs = (function() {
+var Bs = function() {
   function c() {
     this.state = We.NOT_STARTED, this.onGoingTransactionNewState = We.UNKNOWN;
   }
@@ -21706,7 +21706,7 @@ var Bs = (function() {
         throw "Cannot transition from ".concat(this.state, " to ").concat(h);
     }
   }, c;
-})(), Ls = (function() {
+}(), Ls = function() {
   function c(h) {
     this.stateManager = h;
   }
@@ -21725,13 +21725,13 @@ var Bs = (function() {
   }, c.prototype.isPaused = function() {
     return this.stateManager.getState() === We.PAUSED;
   }, c;
-})(), Ps = (function() {
+}(), Ps = function() {
   function c() {
   }
   return c.create = function() {
     return new Ls(new Bs());
   }, c;
-})(), Fs = /* @__PURE__ */ (function() {
+}(), Fs = /* @__PURE__ */ function() {
   var c = function(h, f) {
     return c = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(E, C) {
       E.__proto__ = C;
@@ -21748,13 +21748,13 @@ var Bs = (function() {
     }
     h.prototype = f === null ? Object.create(f) : (E.prototype = f.prototype, new E());
   };
-})(), Pt = (function(c) {
+}(), Pt = function(c) {
   Fs(h, c);
   function h() {
     return c !== null && c.apply(this, arguments) || this;
   }
   return h.DEFAULT_WIDTH = 300, h.DEFAULT_WIDTH_OFFSET = 2, h.FILE_SCAN_MIN_HEIGHT = 300, h.FILE_SCAN_HIDDEN_CANVAS_PADDING = 100, h.MIN_QR_BOX_SIZE = 50, h.SHADED_LEFT = 1, h.SHADED_RIGHT = 2, h.SHADED_TOP = 3, h.SHADED_BOTTOM = 4, h.SHADED_REGION_ELEMENT_ID = "qr-shaded-region", h.VERBOSE = !1, h.BORDER_SHADER_DEFAULT_COLOR = "#ffffff", h.BORDER_SHADER_MATCH_COLOR = "rgb(90, 193, 56)", h;
-})(gs), ks = (function() {
+}(gs), ks = function() {
   function c(h, f) {
     this.logger = f, this.fps = Pt.SCAN_DEFAULT_FPS, h ? (h.fps && (this.fps = h.fps), this.disableFlip = h.disableFlip === !0, this.qrbox = h.qrbox, this.aspectRatio = h.aspectRatio, this.videoConstraints = h.videoConstraints) : this.disableFlip = Pt.DEFAULT_DISABLE_FLIP;
   }
@@ -21765,7 +21765,7 @@ var Bs = (function() {
   }, c.create = function(h, f) {
     return new c(h, f);
   }, c;
-})(), En = (function() {
+}(), En = function() {
   function c(h, f) {
     if (this.element = null, this.canvasElement = null, this.scannerPausedUiElement = null, this.hasBorderShaders = null, this.borderShaders = null, this.qrMatch = null, this.renderedCamera = null, this.qrRegion = null, this.context = null, this.lastScanImageFile = null, this.isScanning = !1, !document.getElementById(h))
       throw "HTML Element with id=".concat(h, " not found");
@@ -22135,7 +22135,7 @@ var Bs = (function() {
   }, c.prototype.getTimeoutFps = function(h) {
     return 1e3 / h;
   }, c;
-})(), pi;
+}(), pi;
 (function(c) {
   c[c.STATUS_DEFAULT = 0] = "STATUS_DEFAULT", c[c.STATUS_SUCCESS = 1] = "STATUS_SUCCESS", c[c.STATUS_WARNING = 2] = "STATUS_WARNING", c[c.STATUS_REQUESTING_PERMISSION = 3] = "STATUS_REQUESTING_PERMISSION";
 })(pi || (pi = {}));
@@ -23087,13 +23087,3 @@ export {
   Sa as QrScanner
 };
 //# sourceMappingURL=index.js.map
-
-
-      (function() {
-        if (typeof document !== 'undefined' && !document.getElementById('scanner-injected-css')) {
-          const style = document.createElement('style');
-          style.id = 'scanner-injected-css';
-          style.textContent = "\n:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error: var(--toastify-color-error);--toastify-container-width: fit-content;--toastify-toast-width: 320px;--toastify-toast-offset: 16px;--toastify-toast-top: max(var(--toastify-toast-offset), env(safe-area-inset-top));--toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-right));--toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-left));--toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));--toastify-toast-background: #fff;--toastify-toast-padding: 14px;--toastify-toast-min-height: 64px;--toastify-toast-max-height: 800px;--toastify-toast-bd-radius: 6px;--toastify-toast-shadow: 0px 4px 12px rgba(0, 0, 0, .1);--toastify-font-family: sans-serif;--toastify-z-index: 9999;--toastify-text-color-light: #757575;--toastify-text-color-dark: #fff;--toastify-text-color-info: #fff;--toastify-text-color-success: #fff;--toastify-text-color-warning: #fff;--toastify-text-color-error: #fff;--toastify-spinner-color: #616161;--toastify-spinner-color-empty-area: #e0e0e0;--toastify-color-progress-light: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);--toastify-color-progress-dark: #bb86fc;--toastify-color-progress-info: var(--toastify-color-info);--toastify-color-progress-success: var(--toastify-color-success);--toastify-color-progress-warning: var(--toastify-color-warning);--toastify-color-progress-error: var(--toastify-color-error);--toastify-color-progress-bgo: .2}.Toastify__toast-container{z-index:var(--toastify-z-index);-webkit-transform:translate3d(0,0,var(--toastify-z-index));position:fixed;width:var(--toastify-container-width);box-sizing:border-box;color:#fff;display:flex;flex-direction:column}.Toastify__toast-container--top-left{top:var(--toastify-toast-top);left:var(--toastify-toast-left)}.Toastify__toast-container--top-center{top:var(--toastify-toast-top);left:50%;transform:translate(-50%);align-items:center}.Toastify__toast-container--top-right{top:var(--toastify-toast-top);right:var(--toastify-toast-right);align-items:end}.Toastify__toast-container--bottom-left{bottom:var(--toastify-toast-bottom);left:var(--toastify-toast-left)}.Toastify__toast-container--bottom-center{bottom:var(--toastify-toast-bottom);left:50%;transform:translate(-50%);align-items:center}.Toastify__toast-container--bottom-right{bottom:var(--toastify-toast-bottom);right:var(--toastify-toast-right);align-items:end}.Toastify__toast{--y: 0;position:relative;touch-action:none;width:var(--toastify-toast-width);min-height:var(--toastify-toast-min-height);box-sizing:border-box;margin-bottom:1rem;padding:var(--toastify-toast-padding);border-radius:var(--toastify-toast-bd-radius);box-shadow:var(--toastify-toast-shadow);max-height:var(--toastify-toast-max-height);font-family:var(--toastify-font-family);z-index:0;display:flex;flex:1 auto;align-items:center;word-break:break-word}@media only screen and (max-width: 480px){.Toastify__toast-container{width:100vw;left:env(safe-area-inset-left);margin:0}.Toastify__toast-container--top-left,.Toastify__toast-container--top-center,.Toastify__toast-container--top-right{top:env(safe-area-inset-top);transform:translate(0)}.Toastify__toast-container--bottom-left,.Toastify__toast-container--bottom-center,.Toastify__toast-container--bottom-right{bottom:env(safe-area-inset-bottom);transform:translate(0)}.Toastify__toast-container--rtl{right:env(safe-area-inset-right);left:initial}.Toastify__toast{--toastify-toast-width: 100%;margin-bottom:0;border-radius:0}}.Toastify__toast-container[data-stacked=true]{width:var(--toastify-toast-width)}.Toastify__toast--stacked{position:absolute;width:100%;transform:translate3d(0,var(--y),0) scale(var(--s));transition:transform .3s}.Toastify__toast--stacked[data-collapsed] .Toastify__toast-body,.Toastify__toast--stacked[data-collapsed] .Toastify__close-button{transition:opacity .1s}.Toastify__toast--stacked[data-collapsed=false]{overflow:visible}.Toastify__toast--stacked[data-collapsed=true]:not(:last-child)>*{opacity:0}.Toastify__toast--stacked:after{content:\"\";position:absolute;left:0;right:0;height:calc(var(--g) * 1px);bottom:100%}.Toastify__toast--stacked[data-pos=top]{top:0}.Toastify__toast--stacked[data-pos=bot]{bottom:0}.Toastify__toast--stacked[data-pos=bot].Toastify__toast--stacked:before{transform-origin:top}.Toastify__toast--stacked[data-pos=top].Toastify__toast--stacked:before{transform-origin:bottom}.Toastify__toast--stacked:before{content:\"\";position:absolute;left:0;right:0;bottom:0;height:100%;transform:scaleY(3);z-index:-1}.Toastify__toast--rtl{direction:rtl}.Toastify__toast--close-on-click{cursor:pointer}.Toastify__toast-icon{margin-inline-end:10px;width:22px;flex-shrink:0;display:flex}.Toastify--animate{animation-fill-mode:both;animation-duration:.5s}.Toastify--animate-icon{animation-fill-mode:both;animation-duration:.3s}.Toastify__toast-theme--dark{background:var(--toastify-color-dark);color:var(--toastify-text-color-dark)}.Toastify__toast-theme--light,.Toastify__toast-theme--colored.Toastify__toast--default{background:var(--toastify-color-light);color:var(--toastify-text-color-light)}.Toastify__toast-theme--colored.Toastify__toast--info{color:var(--toastify-text-color-info);background:var(--toastify-color-info)}.Toastify__toast-theme--colored.Toastify__toast--success{color:var(--toastify-text-color-success);background:var(--toastify-color-success)}.Toastify__toast-theme--colored.Toastify__toast--warning{color:var(--toastify-text-color-warning);background:var(--toastify-color-warning)}.Toastify__toast-theme--colored.Toastify__toast--error{color:var(--toastify-text-color-error);background:var(--toastify-color-error)}.Toastify__progress-bar-theme--light{background:var(--toastify-color-progress-light)}.Toastify__progress-bar-theme--dark{background:var(--toastify-color-progress-dark)}.Toastify__progress-bar--info{background:var(--toastify-color-progress-info)}.Toastify__progress-bar--success{background:var(--toastify-color-progress-success)}.Toastify__progress-bar--warning{background:var(--toastify-color-progress-warning)}.Toastify__progress-bar--error{background:var(--toastify-color-progress-error)}.Toastify__progress-bar-theme--colored.Toastify__progress-bar--info,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--success,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--warning,.Toastify__progress-bar-theme--colored.Toastify__progress-bar--error{background:var(--toastify-color-transparent)}.Toastify__close-button{color:#fff;position:absolute;top:6px;right:6px;background:transparent;outline:none;border:none;padding:0;cursor:pointer;opacity:.7;transition:.3s ease;z-index:1}.Toastify__toast--rtl .Toastify__close-button{left:6px;right:unset}.Toastify__close-button--light{color:#000;opacity:.3}.Toastify__close-button>svg{fill:currentColor;height:16px;width:14px}.Toastify__close-button:hover,.Toastify__close-button:focus{opacity:1}@keyframes Toastify__trackProgress{0%{transform:scaleX(1)}to{transform:scaleX(0)}}.Toastify__progress-bar{position:absolute;bottom:0;left:0;width:100%;height:100%;z-index:1;opacity:.7;transform-origin:left}.Toastify__progress-bar--animated{animation:Toastify__trackProgress linear 1 forwards}.Toastify__progress-bar--controlled{transition:transform .2s}.Toastify__progress-bar--rtl{right:0;left:initial;transform-origin:right;border-bottom-left-radius:initial}.Toastify__progress-bar--wrp{position:absolute;overflow:hidden;bottom:0;left:0;width:100%;height:5px;border-bottom-left-radius:var(--toastify-toast-bd-radius);border-bottom-right-radius:var(--toastify-toast-bd-radius)}.Toastify__progress-bar--wrp[data-hidden=true]{opacity:0}.Toastify__progress-bar--bg{opacity:var(--toastify-color-progress-bgo);width:100%;height:100%}.Toastify__spinner{width:20px;height:20px;box-sizing:border-box;border:2px solid;border-radius:100%;border-color:var(--toastify-spinner-color-empty-area);border-right-color:var(--toastify-spinner-color);animation:Toastify__spin .65s linear infinite}@keyframes Toastify__bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0)}60%{opacity:1;transform:translate3d(-25px,0,0)}75%{transform:translate3d(10px,0,0)}90%{transform:translate3d(-5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutRight{20%{opacity:1;transform:translate3d(-20px,var(--y),0)}to{opacity:0;transform:translate3d(2000px,var(--y),0)}}@keyframes Toastify__bounceInLeft{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0)}60%{opacity:1;transform:translate3d(25px,0,0)}75%{transform:translate3d(-10px,0,0)}90%{transform:translate3d(5px,0,0)}to{transform:none}}@keyframes Toastify__bounceOutLeft{20%{opacity:1;transform:translate3d(20px,var(--y),0)}to{opacity:0;transform:translate3d(-2000px,var(--y),0)}}@keyframes Toastify__bounceInUp{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0)}60%{opacity:1;transform:translate3d(0,-20px,0)}75%{transform:translate3d(0,10px,0)}90%{transform:translate3d(0,-5px,0)}to{transform:translateZ(0)}}@keyframes Toastify__bounceOutUp{20%{transform:translate3d(0,calc(var(--y) - 10px),0)}40%,45%{opacity:1;transform:translate3d(0,calc(var(--y) + 20px),0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes Toastify__bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}@keyframes Toastify__bounceOutDown{20%{transform:translate3d(0,calc(var(--y) - 10px),0)}40%,45%{opacity:1;transform:translate3d(0,calc(var(--y) + 20px),0)}to{opacity:0;transform:translate3d(0,2000px,0)}}.Toastify__bounce-enter--top-left,.Toastify__bounce-enter--bottom-left{animation-name:Toastify__bounceInLeft}.Toastify__bounce-enter--top-right,.Toastify__bounce-enter--bottom-right{animation-name:Toastify__bounceInRight}.Toastify__bounce-enter--top-center{animation-name:Toastify__bounceInDown}.Toastify__bounce-enter--bottom-center{animation-name:Toastify__bounceInUp}.Toastify__bounce-exit--top-left,.Toastify__bounce-exit--bottom-left{animation-name:Toastify__bounceOutLeft}.Toastify__bounce-exit--top-right,.Toastify__bounce-exit--bottom-right{animation-name:Toastify__bounceOutRight}.Toastify__bounce-exit--top-center{animation-name:Toastify__bounceOutUp}.Toastify__bounce-exit--bottom-center{animation-name:Toastify__bounceOutDown}@keyframes Toastify__zoomIn{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes Toastify__zoomOut{0%{opacity:1}50%{opacity:0;transform:translate3d(0,var(--y),0) scale3d(.3,.3,.3)}to{opacity:0}}.Toastify__zoom-enter{animation-name:Toastify__zoomIn}.Toastify__zoom-exit{animation-name:Toastify__zoomOut}@keyframes Toastify__flipIn{0%{transform:perspective(400px) rotateX(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateX(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateX(10deg);opacity:1}80%{transform:perspective(400px) rotateX(-5deg)}to{transform:perspective(400px)}}@keyframes Toastify__flipOut{0%{transform:translate3d(0,var(--y),0) perspective(400px)}30%{transform:translate3d(0,var(--y),0) perspective(400px) rotateX(-20deg);opacity:1}to{transform:translate3d(0,var(--y),0) perspective(400px) rotateX(90deg);opacity:0}}.Toastify__flip-enter{animation-name:Toastify__flipIn}.Toastify__flip-exit{animation-name:Toastify__flipOut}@keyframes Toastify__slideInRight{0%{transform:translate3d(110%,0,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInLeft{0%{transform:translate3d(-110%,0,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInUp{0%{transform:translate3d(0,110%,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideInDown{0%{transform:translate3d(0,-110%,0);visibility:visible}to{transform:translate3d(0,var(--y),0)}}@keyframes Toastify__slideOutRight{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(110%,var(--y),0)}}@keyframes Toastify__slideOutLeft{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(-110%,var(--y),0)}}@keyframes Toastify__slideOutDown{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(0,500px,0)}}@keyframes Toastify__slideOutUp{0%{transform:translate3d(0,var(--y),0)}to{visibility:hidden;transform:translate3d(0,-500px,0)}}.Toastify__slide-enter--top-left,.Toastify__slide-enter--bottom-left{animation-name:Toastify__slideInLeft}.Toastify__slide-enter--top-right,.Toastify__slide-enter--bottom-right{animation-name:Toastify__slideInRight}.Toastify__slide-enter--top-center{animation-name:Toastify__slideInDown}.Toastify__slide-enter--bottom-center{animation-name:Toastify__slideInUp}.Toastify__slide-exit--top-left,.Toastify__slide-exit--bottom-left{animation-name:Toastify__slideOutLeft;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--top-right,.Toastify__slide-exit--bottom-right{animation-name:Toastify__slideOutRight;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--top-center{animation-name:Toastify__slideOutUp;animation-timing-function:ease-in;animation-duration:.3s}.Toastify__slide-exit--bottom-center{animation-name:Toastify__slideOutDown;animation-timing-function:ease-in;animation-duration:.3s}@keyframes Toastify__spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}#qr-reader{border:none!important;border-radius:20px!important;overflow:hidden!important}#qr-reader video{border-radius:20px!important;object-fit:cover!important;width:100%!important;height:100%!important}#qr-reader canvas{border-radius:20px!important;object-fit:cover!important}div[id^=qr-scanner-]{border:none!important;border-radius:20px!important;overflow:hidden!important}div[id^=qr-scanner-] video{border-radius:20px!important;object-fit:cover!important;width:100%!important;height:100%!important}div[id^=qr-scanner-] canvas{border-radius:20px!important;object-fit:cover!important}.Toastify__toast-container{z-index:9999}.container-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center}.top-controls{position:absolute;top:10px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center}.icon-btn{width:50px;height:50px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:#ffffff1a;z-index:4}.icon-img{height:24px;width:auto}.scanner-area{position:relative;display:flex;align-items:center;justify-content:center}.qr-scanner-frame{position:absolute;width:240px;height:240px;border:1px solid rgba(255,255,255,.3);border-radius:20px;z-index:2;pointer-events:none;box-shadow:0 0 26px 500px #000c}.corner{width:50px;height:50px;position:absolute;border:2px solid rgba(255,255,255,.6);transition:border-color .3s ease-in-out}.corner.success{border-color:#0f8;animation:successPulse .6s ease-in-out}@keyframes successPulse{0%{border-color:#fff9}50%{border-color:#0f8}to{border-color:#0f8}}.top-left{top:-10px;left:-10px;border-right:none;border-bottom:none;border-top-left-radius:25px}.top-right{top:-10px;right:-10px;border-left:none;border-bottom:none;border-top-right-radius:25px}.bottom-left{bottom:-10px;left:-10px;border-right:none;border-top:none;border-bottom-left-radius:25px}.bottom-right{bottom:-10px;right:-10px;border-left:none;border-top:none;border-bottom-right-radius:25px}.scanner-video{width:100%;height:100%;border-radius:20px;overflow:hidden;background-color:#2a2a2a;position:relative}.bottom-controls{display:flex;align-items:center;justify-content:center;position:absolute;bottom:40px;gap:10px;width:100%}#camera-select{background-color:#ffffff1a;border:1px solid rgba(255,255,255,.3);border-radius:8px;color:#fff;padding:8px 12px;font-size:16px;cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);z-index:4;max-width:250px;position:absolute;left:20px;bottom:6px}#camera-select:focus{outline:none;border-color:#fff9}#camera-select option{background-color:#333;color:#fff}.file-input-btn{position:absolute;right:20px;bottom:0}#qr-shaded-region{display:none}#qr-shaded-region div{display:none!important}.notification-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000c;display:flex;align-items:center;justify-content:center;z-index:3;border-radius:20px}.notification-message{display:flex;flex-direction:column;align-items:center;gap:12px;color:#fff;font-size:16px;font-weight:500}.loading-spinner{width:40px;height:40px;border:3px solid rgba(255,255,255,.3);border-top:3px solid #00ff88;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}\n/*$vite$:1*/";
-          document.head.appendChild(style);
-        }
-      })();

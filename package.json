@@ -9,7 +9,8 @@
 		".": {
 			"require": "./build/index.cjs",
 			"import": "./build/index.js"
-		}
+		},
+		"./scanner.css": "./build/index.css"
 	},
 	"scripts": {
 		"dev": "vite",
