@@ -1,16 +1,17 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"declaration": true,
-		"emitDeclarationOnly": true,
-		"declarationDir": "./build",
-		"outDir": "./build",
-		"noEmit": false,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"moduleResolution": "node",
-		"allowImportingTsExtensions": true,
-		"strict": true
-	},
-	"include": ["src"]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./build",
+    "outDir": "./build",
+    "noEmit": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "strict": true
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "examples", "test"]
 }
