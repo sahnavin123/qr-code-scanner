@@ -2,12 +2,12 @@
 	"name": "scanner",
 	"version": "0.0.0",
 	"type": "module",
-	"main": "./build/index.cjs.js",
+	"main": "./build/index.umd.cjs",
 	"module": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"exports": {
 		".": {
-			"require": "./build/index.cjs",
+			"require": "./build/index.umd.cjs",
 			"import": "./build/index.js"
 		},
 		"./scanner.css": "./build/index.css"

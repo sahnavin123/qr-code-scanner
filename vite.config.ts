@@ -8,8 +8,9 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "Scanner",
-      fileName: (format) => `index.${format === "es" ? "js" : "cjs"}`,
-      formats: ["es", "cjs"],
+      //   fileName: (format) => `index.${format === "es" ? "js" : "cjs"}`,
+      //   formats: ["es", "cjs"],
+      fileName: "index",
     },
     rollupOptions: {
       external: ["react", "react-dom"],
