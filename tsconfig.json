@@ -1,0 +1,15 @@
+{
+	"files": [],
+	"compilerOptions": {
+		"types": ["node"],
+		"moduleResolution": "node",
+		"target": "ESNext",
+		"module": "ESNext",
+		"jsx": "react-jsx",
+		"baseUrl": "."
+	},
+	"references": [
+		{ "path": "./tsconfig.app.json" },
+		{ "path": "./tsconfig.node.json" }
+	]
+}

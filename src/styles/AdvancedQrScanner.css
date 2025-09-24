@@ -1,0 +1,166 @@
+.advanced-scanner-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.advanced-scanner-heading {
+	color: #333;
+	margin-bottom: 2rem;
+}
+
+.advanced-config-section {
+	background-color: #f8f9fa;
+	padding: 1rem;
+	border-radius: 8px;
+	margin-bottom: 2rem;
+	text-align: left;
+}
+
+.advanced-config-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+}
+
+.advanced-config-item {
+	display: flex;
+	flex-direction: column;
+}
+
+.advanced-config-label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.advanced-config-input {
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.advanced-button-group {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+.advanced-button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 12px 24px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+.advanced-button:hover {
+	background-color: #0056b3;
+}
+
+.advanced-clear-button {
+	background-color: #dc3545;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.3s;
+}
+
+.advanced-clear-button:hover {
+	background-color: #c82333;
+}
+
+.advanced-scan-result {
+	margin-top: 2rem;
+	padding: 1rem;
+	background-color: #d4edda;
+	border: 1px solid #c3e6cb;
+	border-radius: 6px;
+	color: #155724;
+	position: relative;
+}
+
+.advanced-copy-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: #17a2b8;
+	color: #fff;
+	border: none;
+	padding: 4px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+	transition: background-color 0.3s;
+}
+
+.advanced-copy-button:hover {
+	background-color: #138496;
+}
+
+.advanced-scan-history {
+	margin-top: 2rem;
+	text-align: left;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.advanced-history-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.advanced-history-list {
+	list-style-type: none;
+	padding: 0;
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.advanced-history-item {
+	background-color: #f8f9fa;
+	border: 1px solid #dee2e6;
+	border-radius: 4px;
+	padding: 12px;
+	margin-bottom: 8px;
+	position: relative;
+}
+
+.advanced-timestamp {
+	font-size: 12px;
+	color: #6c757d;
+	margin-bottom: 4px;
+}
+
+.advanced-history-data {
+	word-break: break-word;
+	font-family: monospace;
+}
+
+.advanced-history-copy-button {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	background-color: #17a2b8;
+	color: #fff;
+	border: none;
+	padding: 4px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+	transition: background-color 0.3s;
+}
+
+.advanced-history-copy-button:hover {
+	background-color: #138496;
+}
