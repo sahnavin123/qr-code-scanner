@@ -1,5 +1,5 @@
 {
-	"name": "@navin/scanner",
+	"name": "@sahnavin123/scanner",
 	"version": "0.0.1",
 	"type": "module",
 	"main": "./build/index.umd.cjs",
