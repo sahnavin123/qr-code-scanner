@@ -5,15 +5,22 @@ import type { IQrScannerProps } from "../types/qr-scanner.interface";
 import { useScanner } from "../core/useScanner";
 import { QRScannerCustomError, QRScannerErrorType } from "../types/error-types";
 import type { ICameraConfig } from "../core/engines/interface";
-import "react-toastify/dist/ReactToastify.css";
-import "./QrScanner.css";
-import btnIcon from "../assets/flashlight.svg";
-import fileUploadIcon from "../assets/attachment.svg";
-import closeIcon from "../assets/close.svg";
 import { MESSAGES } from "../constants";
-import { toastUtils } from '../utils'
+import { toastUtils } from "../utils";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// ✅ Lazy-load CSS and assets only in the browser
+let btnIcon: string;
+let fileUploadIcon: string;
+let closeIcon: string;
+if (typeof window !== "undefined") {
+  // These imports are safe only in browser
+  require("./QrScanner.css");
+  btnIcon = require("../assets/flashlight.svg");
+  fileUploadIcon = require("../assets/attachment.svg");
+  closeIcon = require("../assets/close.svg");
+}
 
 export const QrScanner: React.FC<IQrScannerProps> = ({
   onScanSuccess,
@@ -34,6 +41,7 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
   const [selectedCameraId, setSelectedCameraId] = useState<string>("");
   const [scanSuccess, setScanSuccess] = useState(false);
   const [loadingScanner, setLoadingScanner] = useState<boolean>(false);
+
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const containerWrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -43,11 +51,12 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
       setScanError(null);
       setScanSuccess(true);
       onScanSuccess(data);
+
       if (!renderSuccessState) {
         // toastUtils.qrScanner.success(MESSAGES.TOAST.QR_SCANNED_SUCCESS);
       }
 
-      // Reset success state after a delay
+      // Reset success state after delay
       setTimeout(() => {
         setScanSuccess(false);
       }, 1000);
@@ -63,31 +72,31 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
       onError?.(error);
 
       if (renderErrorState) return;
+
       if (error instanceof QRScannerCustomError) {
         switch (error.type) {
           case QRScannerErrorType.CAMERA_ACCESS_DENIED:
-            toastUtils.qrScanner.cameraAccessDenied(MESSAGES.TOAST.CAMERA_ACCESS_DENIED);
+            toastUtils.qrScanner.cameraAccessDenied(
+              MESSAGES.TOAST.CAMERA_ACCESS_DENIED
+            );
             break;
-
           case QRScannerErrorType.NO_CAMERA_FOUND:
             toastUtils.qrScanner.noCameraFound(MESSAGES.TOAST.NO_CAMERA_FOUND);
             break;
-
           case QRScannerErrorType.TORCH_NOT_SUPPORTED:
             toastUtils.qrScanner.torchNotSupported(`${error.message}`);
             break;
-
           case QRScannerErrorType.SCANNER_START_FAILED:
-            toastUtils.qrScanner.scannerFailed(MESSAGES.TOAST.SCANNER_START_FAILED);
-            break;
           case QRScannerErrorType.SCANNER_NOT_INITIALIZED:
-            toastUtils.qrScanner.scannerFailed(MESSAGES.TOAST.SCANNER_NOT_INITIALIZED);
+            toastUtils.qrScanner.scannerFailed(
+              MESSAGES.TOAST.SCANNER_START_FAILED
+            );
             break;
-
           case QRScannerErrorType.FILE_SCAN_FAILED:
-            toastUtils.qrScanner.fileScanFailed(MESSAGES.TOAST.FILE_SCAN_FAILED);
+            toastUtils.qrScanner.fileScanFailed(
+              MESSAGES.TOAST.FILE_SCAN_FAILED
+            );
             break;
-
           default:
             console.warn("Unhandled QRScannerCustomError:", error);
             break;
@@ -103,7 +112,6 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
     toggleTorch,
     scanFile,
     getCameras,
-    isTorchAvailable: _isTorchAvailable,
     stop,
   } = useScanner({
     onScanSuccess: handleScanSuccess,
@@ -128,7 +136,7 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
       try {
         await switchCamera?.(cameraId, config);
         setSelectedCameraId(cameraId);
-      } catch (error) {
+      } catch {
         handleError(new Error(MESSAGES.ERROR.FAILED_TO_SWITCH_CAMERA));
       }
     },
@@ -142,21 +150,12 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
         try {
           const result = await scanFile(file);
           handleScanSuccess(result);
-          // Reset the file input so the same file can be selected again
-          if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-          }
+          if (fileInputRef.current) fileInputRef.current.value = "";
         } catch (error) {
-          // Reset the file input even on error
-          if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-          }
-
-          // Preserve the original error if it's already a QRScannerCustomError
+          if (fileInputRef.current) fileInputRef.current.value = "";
           if (error instanceof QRScannerCustomError) {
             handleError(error);
           } else {
-            // Create a new QRScannerCustomError for unexpected errors
             handleError(
               new QRScannerCustomError(
                 QRScannerErrorType.FILE_SCAN_FAILED,
@@ -182,23 +181,17 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
   }, [stop, onClose]);
 
   useEffect(() => {
+    if (!show) return;
     const init = async () => {
-      if (!availableCameras.length) {
-        try {
-          if (getCameras) {
-            const cameras = await getCameras();
-            setAvailableCameras([...cameras]);
-          }
-        } catch (error) {
-          handleError(error as Error);
-          setAvailableCameras([]);
-        }
+      try {
+        const cameras = (await getCameras?.()) || [];
+        setAvailableCameras(cameras);
+      } catch (error) {
+        handleError(error as Error);
+        setAvailableCameras([]);
       }
     };
-
-    if (show) {
-      init();
-    }
+    init();
   }, [show]);
 
   if (!show) return null;
@@ -207,14 +200,27 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
     <div className="container-wrapper" ref={containerWrapperRef}>
       <div className="top-controls">
         <button onClick={handleClose} className="icon-btn">
-          <img src={closeIcon} alt={MESSAGES.ALT_TEXT.CLOSE} className="icon-img" />
+          {closeIcon && (
+            <img
+              src={closeIcon}
+              alt={MESSAGES.ALT_TEXT.CLOSE}
+              className="icon-img"
+            />
+          )}
         </button>
         {enableTorchToggle && (
           <button onClick={handleTorchToggle} className="icon-btn">
-            <img src={btnIcon} alt={MESSAGES.ALT_TEXT.TOGGLE_TORCH} className="icon-img" />
+            {btnIcon && (
+              <img
+                src={btnIcon}
+                alt={MESSAGES.ALT_TEXT.TOGGLE_TORCH}
+                className="icon-img"
+              />
+            )}
           </button>
         )}
       </div>
+
       <div className="scanner-area">
         <div className="qr-scanner-frame">
           <div className={`corner top-left ${scanSuccess ? "success" : ""}`} />
@@ -226,15 +232,19 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
             className={`corner bottom-right ${scanSuccess ? "success" : ""}`}
           />
         </div>
+
         <div ref={containerRef} id="qr-reader" className="scanner-video" />
+
         {(scanSuccess || loadingScanner) && (
           <div className="notification-overlay">
             <div className="notification-message">
               {scanSuccess ? (
-                <span className="scanned-message">{MESSAGES.UI.SCANNED_STATUS}</span>
+                <span className="scanned-message">
+                  {MESSAGES.UI.SCANNED_STATUS}
+                </span>
               ) : (
                 <>
-                  <div className="loading-spinner"></div>
+                  <div className="loading-spinner" />
                   <span>{MESSAGES.UI.INITIALIZING_CAMERA}</span>
                 </>
               )}
@@ -249,6 +259,7 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
       {renderErrorState && scanError && (
         <div className="custom-error">{renderErrorState(scanError)}</div>
       )}
+
       <div className="bottom-controls">
         {enableCameraSwitching && availableCameras.length > 1 && (
           <select
@@ -266,6 +277,7 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
             ))}
           </select>
         )}
+
         {enableFileUpload && (
           <>
             <input
@@ -279,15 +291,18 @@ export const QrScanner: React.FC<IQrScannerProps> = ({
               onClick={() => fileInputRef.current?.click()}
               className="icon-btn file-input-btn"
             >
-              <img
-                src={fileUploadIcon}
-                alt={MESSAGES.ALT_TEXT.FILE_UPLOAD}
-                className="icon-img"
-              />
+              {fileUploadIcon && (
+                <img
+                  src={fileUploadIcon}
+                  alt={MESSAGES.ALT_TEXT.FILE_UPLOAD}
+                  className="icon-img"
+                />
+              )}
             </button>
           </>
         )}
       </div>
+
       <ToastContainer style={{ zIndex: 9999 }} />
     </div>
   );
