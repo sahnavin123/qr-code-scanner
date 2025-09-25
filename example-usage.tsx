@@ -8,7 +8,7 @@ export default function CreateTaskScanner() {
 
   const handleScanSuccess = (data: string) => {
     console.log('QR Code scanned:', data);
-    setShow(false);
+    // setShow(false);
   };
 
   const handleError = (error: Error) => {
@@ -17,6 +17,7 @@ export default function CreateTaskScanner() {
 
   return (
     <div>
+      <p>Example with package build</p>
       <button onClick={() => setShow(true)}>
         Open QR Scanner
       </button>
