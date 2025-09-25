@@ -1,6 +1,6 @@
 {
   "name": "@sahnavin123/scanner",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "./build/index.umd.cjs",
   "module": "./build/index.js",
@@ -30,8 +30,8 @@
     "react-toastify": "^11.0.5"
   },
   "peerDependencies": {
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
